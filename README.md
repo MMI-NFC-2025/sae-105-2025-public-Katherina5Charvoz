@@ -3,11 +3,11 @@
 
 À compléter :
 
-- NOM :
-- PRÉNOM :
-- GROUPE :
-- URL du site :
-- URL FIGMA :
+- NOM : CHARVOZ
+- PRÉNOM : Kathérina
+- GROUPE : B1
+- URL du site : 
+- URL FIGMA :https://www.figma.com/design/MH6v1tDhnLWQyYiLAN9Iep/CHARVOZ-Kath%C3%A9rina?m=dev
 
 ## Sujet
 
