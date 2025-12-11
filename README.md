@@ -7,7 +7,9 @@
 - PRÉNOM : Kathérina
 - GROUPE : B1
 - URL du site : 
-- URL FIGMA :https://www.figma.com/design/MH6v1tDhnLWQyYiLAN9Iep/CHARVOZ-Kath%C3%A9rina?m=dev
+- URL FIGMA : http://127.0.0.1:5500/index.html
+
+https://www.figma.com/design/MH6v1tDhnLWQyYiLAN9Iep/CHARVOZ-Kath%C3%A9rina?m=dev
 
 ## Sujet
 
