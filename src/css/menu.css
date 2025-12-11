@@ -1,0 +1,10 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 12;
+  color: var(--light);
+  display: flex;
+  gap: var(--space-5xl);
+  flex-direction: column;
+  padding: var(--space-4xl);
+}
