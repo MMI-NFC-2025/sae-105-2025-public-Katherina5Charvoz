@@ -1,0 +1,28 @@
+.menu-btn {
+  position: relative;
+  width: var(--space-4xl);
+  height: var(--space-4xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn__bar {
+  background: var(--dark);
+  height: var(--space-sm);
+  width: 100%;
+  position: absolute;
+  border-radius: var(--radius-sm);
+  left: 0;
+  z-index: 20;
+}
+
+.menu-btn__bar--top {
+  bottom: var(--space-md);
+}
+.menu-btn__bar--bottom {
+  top: var(--space-md);
+}
+.menu-btn__bar--light {
+  background: var(--light);
+}
