@@ -7,6 +7,8 @@
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     const pageMain = document.getElementById('pageMain');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuClose = document.getElementById('menuClose');
     let lastFocused = null;
     let docClickHandler = null;
 
@@ -18,6 +20,7 @@
         menuToggle.setAttribute('aria-expanded', 'true');
         document.body.classList.add('no-scroll');
         if (pageMain) pageMain.setAttribute('aria-hidden', 'true');
+        if (menuOverlay) { menuOverlay.hidden = false; requestAnimationFrame(()=> menuOverlay.classList.add('visible')); }
         // focus first link
         const firstLink = mainNav.querySelector('a');
         if (firstLink) firstLink.focus();
@@ -39,12 +42,18 @@
         if (pageMain) pageMain.removeAttribute('aria-hidden');
         document.removeEventListener('keydown', handleMenuKeydown);
         if (docClickHandler) { document.removeEventListener('mousedown', docClickHandler); docClickHandler = null; }
-        // after transition, hide
+        if (menuOverlay) { menuOverlay.classList.remove('visible'); }
+        // after transition, hide menu and restore focus
         mainNav.addEventListener('transitionend', function hide() {
             mainNav.hidden = true;
             mainNav.removeEventListener('transitionend', hide);
             if (lastFocused) lastFocused.focus();
         });
+        // hide overlay after its transition
+        if (menuOverlay) {
+            const onEnd = function () { menuOverlay.hidden = true; menuOverlay.removeEventListener('transitionend', onEnd); };
+            menuOverlay.addEventListener('transitionend', onEnd);
+        }
     }
 
     function toggleMenu() {
@@ -75,6 +84,8 @@
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', toggleMenu);
     }
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
 
     // --- Carrousel simple ---
     const carousel = document.getElementById('heroCarousel');
