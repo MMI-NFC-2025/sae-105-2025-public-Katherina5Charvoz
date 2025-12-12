@@ -1,8 +1,2 @@
-@import url("components/menu.css")
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background: color #fbbb61;
-    
-}
+ @import url("components/menu.css");
+@import url("layout/header.css");
