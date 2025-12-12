@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/src/css/styles.css">
+        <link rel="stylesheet" href="/src/css/components/hero.css">
+        <link rel="stylesheet" href="/src/css/scenes.css">
 </head>
 
 <body>
@@ -164,7 +166,36 @@
 
         <h1 class="">ARTISTES</h1>
 
-        <h1 class="">SCENES</h1>
+        <section id="scenes" class="scenes-section" aria-label="Les scènes du festival">
+            <h1 class="scenes-section__title">SCÈNES</h1>
+
+            <div class="scenes-carousel" id="scenesCarousel" tabindex="0">
+                <div class="scenes-track">
+                    <div class="scenes-slide" data-index="0" aria-hidden="false">
+                        <div class="scene-card">
+                            <h3 class="scene-card__title">Scène Principale</h3>
+                            <p class="scene-card__desc">Concerts majeurs, têtes d'affiche et clôtures de soirée.</p>
+                        </div>
+                    </div>
+                    <div class="scenes-slide" data-index="1" aria-hidden="true">
+                        <div class="scene-card">
+                            <h3 class="scene-card__title">Scène Urbaine</h3>
+                            <p class="scene-card__desc">Battles, sessions hip-hop et performances de rue.</p>
+                        </div>
+                    </div>
+                    <div class="scenes-slide" data-index="2" aria-hidden="true">
+                        <div class="scene-card">
+                            <h3 class="scene-card__title">Scène Nationale</h3>
+                            <p class="scene-card__desc">Talents locaux et découvertes de la scène régionale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="scenes-prev" aria-label="Image précédente">‹</button>
+                <button class="scenes-next" aria-label="Image suivante">›</button>
+                <div class="scenes-dots" role="tablist" aria-label="Navigation des scènes"></div>
+            </div>
+        </section>
         <h1 class="">INFOS PRATIQUES</h1>
         <img src="/assets/Image_de_festival_ton_chaleureux.png" alt="">
         <h2 class="">Accès / Plan</h2>

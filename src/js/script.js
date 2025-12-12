@@ -158,5 +158,70 @@
         if (e.target.tagName === 'A') closeMenu();
     });
 
+    // --- Scenes carousel (animated, autoplay, accessible) ---
+    (function initScenesCarousel() {
+        const carousel = document.getElementById('scenesCarousel');
+        if (!carousel) return;
+        const track = carousel.querySelector('.scenes-track');
+        const slides = Array.from(carousel.querySelectorAll('.scenes-slide'));
+        const prev = carousel.querySelector('.scenes-prev');
+        const next = carousel.querySelector('.scenes-next');
+        const dotsWrap = carousel.querySelector('.scenes-dots');
+        let current = 0;
+        const interval = 5000;
+        let timer = null;
+
+        function goTo(i, user) {
+            current = (i + slides.length) % slides.length;
+            const offset = -current * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            slides.forEach((s, idx) => s.setAttribute('aria-hidden', idx !== current));
+            // update dots
+            const dots = Array.from(dotsWrap.querySelectorAll('button'));
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+            if (!user) return;
+            // when user interacts, pause autoplay briefly
+            pauseAutoplay();
+            startAutoplay(3000);
+        }
+
+        function prevSlide() { goTo(current - 1, true); }
+        function nextSlide() { goTo(current + 1, true); }
+
+        // create dots
+        slides.forEach((s, idx) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('aria-label', `Aller à la diapositive ${idx + 1}`);
+            b.addEventListener('click', () => goTo(idx, true));
+            if (idx === 0) b.classList.add('active');
+            dotsWrap.appendChild(b);
+        });
+
+        prev.addEventListener('click', prevSlide);
+        next.addEventListener('click', nextSlide);
+
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        function startAutoplay(wait) {
+            if (timer) clearInterval(timer);
+            timer = setInterval(() => { goTo(current + 1, false); }, wait || interval);
+        }
+
+        function pauseAutoplay() { if (timer) { clearInterval(timer); timer = null; } }
+
+        carousel.addEventListener('mouseenter', pauseAutoplay);
+        carousel.addEventListener('focusin', pauseAutoplay);
+        carousel.addEventListener('mouseleave', () => startAutoplay());
+        carousel.addEventListener('focusout', () => startAutoplay());
+
+        // initialize
+        goTo(0, false);
+        startAutoplay();
+    })();
+
 })();
 
