@@ -6,18 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="menu.css"></a>menu</li>
-            <li><a href="accueil.css"></a>accueil</li>
-            <li><a href="apropos.css"></a>apropos</li>
-            <li><a href="programme.css"></a>programme</li>
-            <li><a href="artistes.css"></a>artistes</li>
-            <li><a href="scenes.css"></a>scenes</li>
-            <li><a href="infospratiques.css"></a>infospratiques</li>
-            <li><a href="contact.css"></a>contact</li>
-        </ul>
-    </nav>
+    <header>
+        <button id="menuToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu">
+            <span class="hamburger" aria-hidden="true"></span>
+        </button>
+        <nav id="mainNav" class="menu" hidden>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#apropos">A propos</a></li>
+                <li><a href="#programme">Programme</a></li>
+                <li><a href="#artistes">Artistes</a></li>
+                <li><a href="#scenes">Scènes</a></li>
+                <li><a href="#infos">Infos pratiques</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
  Accueil   
 <img src="/assets/Image_de_festival_ton_chaleureux.png" alt="">
 <h1 class="datesLieux"> DU 20 AU 23 DECEMBRE 2026 A BELFORT </h1>    
@@ -191,5 +195,12 @@ instagram : @lesrivesduterritoire</p>
     <button type="submit">Envoyer</button>
 </form>
 <img src="/assets/Image_de_festival_ton_chaleureux.png" alt="">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" hidden>
+        <div class="lightbox-content">
+            <button id="lightboxClose" aria-label="Fermer la fenêtre">✕</button>
+            <img id="lightboxImg" src="" alt="Agrandissement">
+        </div>
+    </div>
+    <script src="src/js/script.js"></script>
 </body>
 </html>
