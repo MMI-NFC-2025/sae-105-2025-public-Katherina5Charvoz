@@ -6,7 +6,9 @@
     // --- Menu rétractable accessible ---
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
+    const pageMain = document.getElementById('pageMain');
     let lastFocused = null;
+    let docClickHandler = null;
 
     function openMenu() {
         lastFocused = document.activeElement;
@@ -15,18 +17,28 @@
         requestAnimationFrame(() => mainNav.classList.add('open'));
         menuToggle.setAttribute('aria-expanded', 'true');
         document.body.classList.add('no-scroll');
+        if (pageMain) pageMain.setAttribute('aria-hidden', 'true');
         // focus first link
         const firstLink = mainNav.querySelector('a');
         if (firstLink) firstLink.focus();
         // trap focus
         document.addEventListener('keydown', handleMenuKeydown);
+        // close when clicking outside
+        docClickHandler = function (ev) {
+            if (!mainNav.contains(ev.target) && ev.target !== menuToggle && !menuToggle.contains(ev.target)) {
+                closeMenu();
+            }
+        };
+        document.addEventListener('mousedown', docClickHandler);
     }
 
     function closeMenu() {
         mainNav.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('no-scroll');
+        if (pageMain) pageMain.removeAttribute('aria-hidden');
         document.removeEventListener('keydown', handleMenuKeydown);
+        if (docClickHandler) { document.removeEventListener('mousedown', docClickHandler); docClickHandler = null; }
         // after transition, hide
         mainNav.addEventListener('transitionend', function hide() {
             mainNav.hidden = true;
