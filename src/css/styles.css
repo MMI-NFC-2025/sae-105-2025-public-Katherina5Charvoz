@@ -32,3 +32,13 @@
     max-height: 90%;
     overflow-y: auto;
 }
+.menu-overlay__close-btn {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    background: transparent;
+    border: none;
+    font-size: var(--font-size-4xl);
+    color: var(--dark);
+    cursor: pointer;
+}
