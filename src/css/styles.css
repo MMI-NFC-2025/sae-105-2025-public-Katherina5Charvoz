@@ -42,3 +42,7 @@
     color: var(--dark);
     cursor: pointer;
 }
+.menu-overlay__close-btn:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
