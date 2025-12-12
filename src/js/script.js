@@ -20,7 +20,7 @@
         menuToggle.setAttribute('aria-expanded', 'true');
         document.body.classList.add('no-scroll');
         if (pageMain) pageMain.setAttribute('aria-hidden', 'true');
-        if (menuOverlay) { menuOverlay.hidden = false; requestAnimationFrame(()=> menuOverlay.classList.add('visible')); }
+        if (menuOverlay) { menuOverlay.hidden = false; requestAnimationFrame(() => menuOverlay.classList.add('visible')); }
         // focus first link
         const firstLink = mainNav.querySelector('a');
         if (firstLink) firstLink.focus();

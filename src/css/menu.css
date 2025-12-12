@@ -57,7 +57,7 @@
     height: 100vh;
     transform: translateX(-110%);
     opacity: 0.98;
-    transition: transform 420ms cubic-bezier(.16,.84,.24,1), box-shadow 320ms ease;
+    transition: transform 420ms cubic-bezier(.16, .84, .24, 1), box-shadow 320ms ease;
     will-change: transform;
     box-shadow: 4px 0 16px rgba(0, 0, 0, 0.12);
     padding: 2rem;
@@ -90,13 +90,14 @@
 .menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.0);
+    background: rgba(0, 0, 0, 0.0);
     z-index: 10;
-    transition: background 360ms cubic-bezier(.2,.8,.2,1), opacity 360ms ease;
+    transition: background 360ms cubic-bezier(.2, .8, .2, 1), opacity 360ms ease;
     opacity: 0;
 }
+
 .menu-overlay.visible {
-    background: rgba(0,0,0,0.42);
+    background: rgba(0, 0, 0, 0.42);
     opacity: 1;
 }
 
